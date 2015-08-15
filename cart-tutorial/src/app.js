@@ -1,1 +1,1 @@
-app.js
+ko.applyBindings(categories);
