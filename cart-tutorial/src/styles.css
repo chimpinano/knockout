@@ -1,16 +1,42 @@
 #cartProductsWrapper {
-	width: 100vw;
-	height: 100vh;
-	position: absolute;
-	top: 50vh;
-	left: 0px;
-	z-index: 10;
-	background-color: black;
-	color: white;
+    width: 100vw;
+    height: 100vh;
+    position: absolute;
+    top: 50vh;
+    left: 0px;
+    z-index: 10;
+    background-color: black;
+    color: white;
 
-	-webkit-transition: opacity 0.8s ease;
+    -webkit-transition: opacity 0.8s ease;
     -moz-transition: opacity 0.8s ease;
     -ms-transition: opacity 0.8s ease;
     -o-transition: opacity 0.8s ease;
     transition: opacity 0.8s ease;
+}
+
+.product-view {
+    height: 300px;
+    -webkit-background-size: cover;
+    background-size: cover;
+    background-blend-mode: multiply;
+    -webkit-transition: all 0.3s ease;
+    -moz-transition: all 0.3s ease;
+    -ms-transition: all 0.3s ease;
+    -o-transition: all 0.3s ease;
+    transition: all 0.3s ease;
+    text-align: center;
+    background-color: rgba(0, 0, 0, 0.0);
+    padding-top: 20px;
+    font-size: 1.2em;
+    color: #fff;
+    opacity: 1;
+}
+
+.product-view:hover {
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.navbar {
+    margin-bottom: 0 !important;
 }
