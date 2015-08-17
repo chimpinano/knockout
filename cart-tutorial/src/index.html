@@ -57,6 +57,7 @@
             <ul data-bind="foreach: items" style="list-style-type: none">
                 <li style="border: 1px solid white;border-radius: 7px;height: 80px;margin: 5px;">
                     <div class="row">
+                        <span class="cart-remove-item" data-bind="click: $parent.cartRemove">X</span>
                         <div class="col-md-2">
                             <img class="cart-product-image" data-bind="attr: {src: $data.image}" alt=""/>
                         </div>

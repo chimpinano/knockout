@@ -32,8 +32,8 @@ function Cart() {
     });
 
 
-    self.items.subscribe(function () {
-        console.log('gawdawd')
-    }, null, 'afterChange');
+    self.cartRemove = function (item) {
+        self.items.remove(item);
+    };
 
 };
