@@ -1,32 +1,40 @@
 ko.bindingHandlers.addToCart = {
-	init: function(el, valAccessor, allBindings, vm, bindingContext){
-		$(el).on('click', function(){
-			if(cart.itemExists(vm)){
-				cart.items()[cart.items.indexOf(vm)].quantity++;
-			} else {
-				vm.quantity = 1;
-				cart.items.push(vm);
-			}
-			
-		});
-	}
-}
+    init: function (el, valAccessor, allBindings, vm, bindingContext) {
+        $(el).on('click', function () {
+            var exists = ko.utils.arrayFirst(cart.items(), function (item) {
+                return vm.id === item.product().id;
+            });
 
-var cart = {
-	items: ko.observableArray(),
-	itemExists: function(item){
-		var self = this;
-		if( self.items.indexOf(item) !== -1 ){
-			console.log('exists');
-			return true;
-		} else {
-			console.log('dont exists');
-			return false;
-		}
-	}
+            if (!exists) {
+                var node = new CartNode(vm);
+                cart.items().push(node);
+            } else {
+                var qtty = cart.items()[cart.items().indexOf(exists)].quantity();
+                cart.items()[cart.items().indexOf(exists)].quantity(qtty + 1);
+            }
+        });
+    }
 };
 
+function CartNode(product) {
+    var self = this;
+    self.quantity = ko.observable(1);
+    self.product = ko.observable(product);
+    self.subtotal = ko.computed(function(){
+        return self.product().price * self.quantity();
+    });
+}
 
+function Cart() {
+    var self = this;
+    self.isVisible = ko.observable(true);
+    self.items = ko.observableArray([]);
+    self.itemExists = function (item) {
+        return ( this.items().indexOf(item) !== -1 );
+    };
+}
+
+var cart = new Cart();
 
 ko.applyBindings(categories, document.getElementById('bs-example-navbar-collapse-1'));
 ko.applyBindings(products, document.getElementById('isotopeBody'));

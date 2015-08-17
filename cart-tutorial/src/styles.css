@@ -1,0 +1,16 @@
+#cartProductsWrapper {
+	width: 100vw;
+	height: 100vh;
+	position: absolute;
+	top: 50vh;
+	left: 0px;
+	z-index: 10;
+	background-color: black;
+	color: white;
+
+	-webkit-transition: opacity 0.8s ease;
+    -moz-transition: opacity 0.8s ease;
+    -ms-transition: opacity 0.8s ease;
+    -o-transition: opacity 0.8s ease;
+    transition: opacity 0.8s ease;
+}

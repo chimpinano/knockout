@@ -4,6 +4,7 @@
 	<title>Knockout JS - Cart Tutorial</title>
 	<meta charset="utf-8">
 	<link rel="stylesheet" type="text/css" href="../bower_components/bootstrap/dist/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="styles.css">
 </head>
 <body>
 
@@ -19,6 +20,11 @@
         <span class="icon-bar"></span>
       </button>
       <a class="navbar-brand" href="#">Brand</a>
+      
+    <ul class="nav navbar-nav">
+		<li><a href="#" data-bind="click: Cart().isVisible(true)">View cart</a></li>
+	</ul>
+
     </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->
@@ -27,6 +33,7 @@
         <li data-bind="">
         	<a href="#" data-bind="text: $data.name"></a>
         </li>
+
       </ul>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
@@ -39,8 +46,13 @@
 </div>
 
 
-<div id="cartProductsWrapper">
-
+<div id="cartProductsWrapper" data-bind="style: {opacity: isVisible() ? 1 : 0, zIndex: isVisible() ? 10 : -10}">
+	<ul data-bind="foreach: items">
+		<li>
+			<img data-bind="attr: {src: $data.image}">
+			<span data-bind="text: $data.name"></span>
+		</li>
+	</ul>
 </div>
 
 	<script type="text/javascript" src="data/category.js"></script>
