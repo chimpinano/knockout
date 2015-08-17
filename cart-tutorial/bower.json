@@ -18,6 +18,7 @@
     "knockout": "~3.3.0",
     "jquery": "jquery#~2.1.4",
     "bootstrap": "~3.3.5",
-    "isotope": "~2.2.1"
+    "isotope": "~2.2.1",
+    "knockout-mapping": "~2.4.1"
   }
 }

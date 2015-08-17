@@ -2,7 +2,7 @@
 <html>
 <head>
     <title>Knockout JS - Cart Tutorial</title>
-    <meta charset="utf-8">
+    <meta charset="utf-8" />
     <link rel="stylesheet" type="text/css" href="../bower_components/bootstrap/dist/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="styles.css">
 </head>
@@ -50,15 +50,24 @@
 
 
 <div id="cartProductsWrapper" data-bind="style: {opacity: isVisible() ? 1 : 0, zIndex: isVisible() ? 10 : -10}">
-    <span data-bind="text: subtotal"></span>
+
+    <ul data-bind="foreach: items">
+        <li data-bind="text: name()"></li>
+    </ul>
+
+    <span>Общо: <span data-bind="text: grandTotal()"></span> лв.</span>
 </div>
 
 <script type="text/javascript" src="data/category.js"></script>
 <script type="text/javascript" src="data/products.js"></script>
 
+<script type="text/javascript" src="viewmodels/cartnode.js"></script>
+<script type="text/javascript" src="viewmodels/cart.js"></script>
+
 <script type="text/javascript" src="../bower_components/jquery/dist/jquery.min.js"></script>
 <script type="text/javascript" src="../bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
 <script type="text/javascript" src="../bower_components/knockout/dist/knockout.js"></script>
+<script type="text/javascript" src="../bower_components/knockout-mapping/build/output/knockout.mapping-latest.js"></script>
 <script type="text/javascript" src="app.js"></script>
 </body>
 </html>
