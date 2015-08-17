@@ -6,6 +6,13 @@ ko.bindingHandlers.addToCart = {
     }
 };
 
+ko.bindingHandlers.priceFormated = {
+    init: function (el, valAcc, allBindings, vm, bindContext) {
+        var price = '$ ' + vm.price().toFixed(2);
+        $(el).text(price);
+    }
+};
+
 var cart = new Cart();
 
 ko.applyBindings(categories, document.getElementById('bs-example-navbar-collapse-1'));

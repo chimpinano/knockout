@@ -2,7 +2,7 @@
 <html>
 <head>
     <title>Knockout JS - Cart Tutorial</title>
-    <meta charset="utf-8" />
+    <meta charset="utf-8"/>
     <link rel="stylesheet" type="text/css" href="../bower_components/bootstrap/dist/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="styles.css">
 </head>
@@ -42,20 +42,47 @@
     <!-- /.container-fluid -->
 </nav>
 
-    <div class="row" id="isotopeBody" data-bind="foreach: products">
-        <div class="col-md-4 product-view"
-             data-bind="text: $data.name, addToCart: $data, style: {'background-image': 'url('+$data.image+')'}"></div>
-    </div>
-
+<div class="row" id="isotopeBody" data-bind="foreach: products">
+    <div class="col-md-4 product-view"
+         data-bind="text: $data.name, addToCart: $data, style: {'background-image': 'url('+$data.image+')'}"></div>
+</div>
 
 
 <div id="cartProductsWrapper" data-bind="style: {opacity: isVisible() ? 1 : 0, zIndex: isVisible() ? 10 : -10}">
 
-    <ul data-bind="foreach: items">
-        <li data-bind="text: name()"></li>
-    </ul>
+    <div class="row">
 
-    <span>Общо: <span data-bind="text: grandTotal()"></span> лв.</span>
+        <div class="col-md-6">
+
+            <ul data-bind="foreach: items" style="list-style-type: none">
+                <li style="border: 1px solid white;border-radius: 7px;height: 80px;margin: 5px;">
+                    <div class="row">
+                        <div class="col-md-2">
+                            <img class="cart-product-image" data-bind="attr: {src: $data.image}" alt=""/>
+                        </div>
+                        <div class="col-md-10">
+                            <h5 data-bind="text: name()"></h5>
+                            <span data-bind="priceFormated: price()"></span>
+                        </div>
+                    </div>
+
+
+                </li>
+            </ul>
+
+            <div class="col-md-5">
+
+            </div>
+
+
+        </div>
+
+        <div class="col-md-12">
+            <span>Общо: <span data-bind="text: grandTotal()"></span> лв.</span>
+        </div>
+    </div>
+
+
 </div>
 
 <script type="text/javascript" src="data/category.js"></script>
@@ -67,7 +94,8 @@
 <script type="text/javascript" src="../bower_components/jquery/dist/jquery.min.js"></script>
 <script type="text/javascript" src="../bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
 <script type="text/javascript" src="../bower_components/knockout/dist/knockout.js"></script>
-<script type="text/javascript" src="../bower_components/knockout-mapping/build/output/knockout.mapping-latest.js"></script>
+<script type="text/javascript"
+        src="../bower_components/knockout-mapping/build/output/knockout.mapping-latest.js"></script>
 <script type="text/javascript" src="app.js"></script>
 </body>
 </html>
